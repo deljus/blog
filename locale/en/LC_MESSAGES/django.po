@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 15:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/forms.py:9
+msgid "About"
+msgstr ""
+
+#: accounts/forms.py:15
+msgid "Birth date"
+msgstr ""
+
+#: accounts/forms.py:22
+msgid "Avatar"
+msgstr ""
+
+#: meow_blog/settings.py:171
+msgid "Russian"
+msgstr ""
+
+#: meow_blog/settings.py:172
+msgid "English"
+msgstr ""
+
+#: posts/forms.py:15 posts/forms.py:26 posts/forms.py:27
+msgid "post_title_field"
+msgstr "Title"
+
+#: posts/forms.py:17
+msgid "post_body_field"
+msgstr "Text"
+
+#: templates/navbar.html:12
+msgid "home"
+msgstr "Home"
+
+#: templates/navbar.html:16
+msgid "posts"
+msgstr "Posts"
+
+#: templates/navbar.html:20
+msgid "users"
+msgstr "Users"
+
+#: templates/navbar.html:36
+msgid "lang_label"
+msgstr "Language"
+
+#: templates/navbar.html:53
+msgid "user_label"
+msgstr "User"
+
+#: templates/navbar.html:58
+msgid "profile"
+msgstr "Profile"
+
+#: templates/navbar.html:62
+msgid "crete_post"
+msgstr "Create post"
+
+#: templates/navbar.html:66
+msgid "user_all_posts"
+msgstr "My posts"
+
+#: templates/navbar.html:69
+msgid "sign_out"
+msgstr "Sign out"
+
+#: templates/navbar.html:76
+msgid "sign_in"
+msgstr "Sign in"
+
+#: templates/navbar.html:79
+msgid "sign_up"
+msgstr "Sign up"
+
+#: templates/pages/create_post.html:5 templates/pages/create_post.html:11
+msgid "create_post_title"
+msgstr "Create post"
+
+#: templates/pages/create_post.html:15 templates/pages/posts.html:15
+msgid "create_post_submit_btn"
+msgstr "Submit"
+
+#: templates/pages/edit_post.html:5 templates/pages/edit_post.html:11
+msgid "edit_post_title"
+msgstr "Title"
+
+#: templates/pages/edit_post.html:14
+msgid "edit_post_submit_btn"
+msgstr "Submit"
+
+#: templates/pages/single_post.html:5
+msgid "La Grande Boucle"
+msgstr ""
+
+#: templates/pages/single_post.html:15 templates/pages/single_post.html:89
+msgid "Edit"
+msgstr ""
+
+#: templates/pages/users.html:2 templates/sidebar.html:39
+msgid "nav_users"
+msgstr "Users"
+
+#: templates/sidebar.html:13
+msgid "nav_home"
+msgstr "Home"
+
+#: templates/sidebar.html:20
+msgid "nav_profile"
+msgstr "Profile"
+
+#: templates/sidebar.html:26
+msgid "nav_crete_post"
+msgstr "Create post"
+
+#: templates/sidebar.html:32
+msgid "nav_user_all_posts"
+msgstr "My posts"
+
+#~ msgid "nav_all_posts"
+#~ msgstr "Posts"

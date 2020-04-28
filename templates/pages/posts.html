@@ -1,0 +1,61 @@
+{% extends "../base.html" %}
+{% block title %}My amazing blog{% endblock %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+<main role="main" class="flex-shrink-0">
+   <div class="container">
+      <div class="row">
+
+         <!-- Search bar -->
+         <div class="col-md-3">
+            <div class="card card-body">
+               <form method="get" novalidate>
+                  <div class="form-group">
+                     {{ form|crispy }}
+                     <button class="btn btn-primary btn-block" type="submit">{% trans 'create_post_submit_btn' %}</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <!-- END Search bar -->
+
+         <div class="col">
+            <h1 class="h3 mb-3 font-weight-normal">
+               {% trans 'posts' %}
+            </h1>
+            <!-- Posts -->
+            {% for post in posts %}
+            <div class="card border-dark mb-2 mt-2">
+               <div class="card-body text-dark">
+                  <h5 class="card-title">{{ post.name }}</h5>
+                  <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
+                  <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">Read more</a>
+               </div>
+            </div>
+            {% endfor %}
+            <!-- END posts -->
+
+            <!-- Pagination -->
+            {% if posts.has_other_pages %}
+            <nav aria-label="Page navigation conatiner">
+               <ul class="pagination justify-content-center">
+                  {% if posts.has_previous %}
+                  <li>
+                     <a href="?page={{ posts.previous_page_number }}" class="page-link">&laquo; PREV </a>
+                  </li>
+                  {% endif %}
+                  {% if posts.has_next %}
+                  <li>
+                     <a href="?page={{ posts.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+                  </li>
+                  {% endif %}
+               </ul>
+            </nav>
+            {% endif %}
+            <!-- END Pagination -->
+
+         </div>
+      </div>
+   </div>
+</main>
+{% endblock %}

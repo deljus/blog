@@ -1,0 +1,76 @@
+{% load i18n %}
+<nav id="sidebar" class="active">
+    <div class="sidebar-header">
+        <h3>Mica Mic Blog</h3>
+        <strong>MB</strong>
+    </div>
+
+     {% with request.resolver_match.url_name as url_name %}
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if url_name == 'index' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'index' %}">
+            <i class="fas fa-home"></i>
+            {% trans 'nav_home' %}
+            <span class="sr-only">(current)</span></a>
+      </li>
+    {% if user.is_authenticated %}
+      <li class="nav-item {% if url_name == 'profile' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'accounts:profile' %}">
+            <i class="fas fa-user"></i>
+            {% trans 'nav_profile' %}
+        </a>
+      </li>
+        <li class="nav-link{% if url_name == 'create_post' %}active{% endif %}">
+            <a href="{% url 'posts:create_post' %}">
+                <i class="fas fa-edit"></i>
+                {% trans 'nav_crete_post' %}
+            </a>
+        </li>
+        <li class="nav-link{% if url_name == 'user_posts' %}active{% endif %}">
+            <a href="{% url 'posts:user_posts' %}">
+                <i class="fas fa-database"></i>
+                {% trans 'nav_user_all_posts' %}
+            </a>
+        </li>
+    {% endif %}
+        <li class="nav-link{% if url_name == 'create_post' %}active{% endif %}">
+            <a href="{% url 'posts:create_post' %}">
+                <i class="fas fa-users"></i>
+                {% trans 'nav_users' %}
+            </a>
+        </li>
+    </ul>
+    {% endwith %}
+
+<div>
+       {% get_available_languages as languages %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+    <div class="dropdown">
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+          <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ LANGUAGE_CODE }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              {% for language in languages %}
+              <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <input name="language" type="hidden" value="{{ language.code }}" />
+                  <button class="dropdown-item" type="submit">{{ language.name_local }}</button>
+              </form>
+              {% endfor %}
+          </div>
+        </form>
+    </div>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'accounts:logout' %}" type="button" class="btn btn-danger">Sign out</a>
+      {% else %}
+          <a href="{% url 'accounts:login' %}" type="button" class="btn btn-primary">Sign in</a>
+          <a href="{% url 'accounts:registration' %}" type="button" class="btn btn-primary">Sign up</a>
+      {% endif %}
+    </div>
+
+</nav>

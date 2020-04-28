@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+{% block title %}{% trans 'nav_users' %}{% endblock %}
+{% block content %}
+ <main role="main" class="flex-shrink-0">
+    <div class="container">
+        {% for user in users %}
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h5 class="card-title">{{ post.name }}</h5>
+                <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
+                  <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">Read more</a>
+              </div>
+            </div>
+        {% endfor %}
+        {% if posts.has_other_pages %}
+          <nav aria-label="Page navigation conatiner">
+              <ul class="pagination justify-content-center">
+                {% if posts.has_previous %}
+                    <li>
+                        <a href="?page={{ posts.previous_page_number }}" class="page-link">&laquo; PREV </a>
+                    </li>
+                {% endif %}
+                {% if posts.has_next %}
+                    <li>
+                        <a href="?page={{ posts.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+                    </li>
+               {% endif %}
+              </ul>
+          </nav>
+        </div>
+        {% endif %}
+    </div>
+ </main>
+{% endblock %}

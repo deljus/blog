@@ -1,0 +1,86 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <!-- Left side collapse links -->
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+         <a class="nav-link" href="{% url 'index' %}">
+             <i class="fas fa-home"></i>
+             {% trans 'home' %}
+         </a>
+         <a class="nav-item nav-link" href="{% url 'posts:all' %}">
+             <i class="fas fa-copy"></i>
+             {% trans 'posts' %}
+         </a>
+         <a class="nav-item nav-link" href="{% url 'posts:create_post' %}">
+             <i class="fas fa-users"></i>
+             {% trans 'users' %}
+         </a>
+      </div>
+   </div>
+   <!-- END Left side collapse links -->
+
+   <!-- Right side collapse links -->
+   <ul class="navbar-nav">
+
+       <!-- Select lang -->
+      {% get_available_languages as languages %}
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      <li class="navbar-nav dropdown">
+        <a href="#" class="nav-link dropdown-toggle"  type="button" id="lang-switch-dropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+            {% trans 'lang_label' %}:&nbsp;{{ LANGUAGE_CODE }}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lang-switch-dropdown">
+           {% for language in languages %}
+             <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                 <input name="language" type="hidden" value="{{ language.code }}" />
+                 <button class="dropdown-item" type="submit">{{ language.name_local }}</button>
+             </form>
+         {% endfor %}
+         </div>
+      </li>
+       <!-- END Select lang -->
+
+      {% if user.is_authenticated %}
+      <li class="navbar-nav dropdown">
+         <a href="#" class="nav-link dropdown-toggle" type="button" id="user-dropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+            {% trans 'user_label' %}:&nbsp;{{ user.username }}
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+            <a class="dropdown-item" href="{% url 'accounts:profile' %}">
+                <i class="fas fa-user"></i>
+                {% trans 'profile' %}
+            </a>
+            <a class="dropdown-item" href="{% url 'posts:create_post' %}">
+                <i class="fas fa-edit"></i>
+                {% trans 'crete_post' %}
+            </a>
+            <a class="dropdown-item" href="{% url 'posts:user_posts' %}">
+                <i class="fas fa-database"></i>
+                {% trans 'user_all_posts' %}
+            </a>
+            <a class="dropdown-item" href="{% url 'accounts:logout' %}">
+                <i class="fas fa-sign-out-alt"></i>
+                {% trans 'sign_out' %}
+            </a>
+         </div>
+      </li>
+   </ul>
+   {% else %}
+   <a href="{% url 'accounts:login' %}" type="button" class="btn btn-outline-primary">
+        {% trans 'sign_in' %}
+   </a>
+   <a href="{% url 'accounts:registration' %}" type="button" class="btn btn-outline-primary ml-2">
+        {% trans 'sign_up' %}
+   </a>
+   {% endif %}
+   </div>
+
+   <!-- END Right side collapse links -->
+</nav>
