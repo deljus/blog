@@ -5,26 +5,9 @@
 <main role="main" class="flex-shrink-0">
    <div class="container">
       <div class="row">
-
-         <!-- Search bar -->
-         <div class="col-md-3 mt-5">
-            <div class="card card-body">
-               <form method="get" novalidate>
-                  <div class="form-group">
-                     {{ form|crispy }}
-                     <button class="btn btn-primary btn-block" type="submit">
-                         <i class="fas fa-search"></i>
-                         {% trans 'search_btn' %}
-                     </button>
-                  </div>
-               </form>
-            </div>
-         </div>
-         <!-- END Search bar -->
-
          <div class="col">
             <h1 class="h3 mb-3 font-weight-normal">
-               {% trans 'posts' %}
+               {% trans 'user_all_posts' %}
             </h1>
             <!-- Posts -->
             {% for post in posts %}

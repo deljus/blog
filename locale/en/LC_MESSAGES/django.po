@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-28 15:13+0300\n"
+"POT-Creation-Date: 2020-04-28 19:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Text"
 msgid "home"
 msgstr "Home"
 
-#: templates/navbar.html:16
+#: templates/navbar.html:16 templates/pages/posts.html:27
 msgid "posts"
 msgstr "Posts"
 
@@ -78,15 +78,15 @@ msgstr "Create post"
 msgid "user_all_posts"
 msgstr "My posts"
 
-#: templates/navbar.html:69
+#: templates/navbar.html:70
 msgid "sign_out"
 msgstr "Sign out"
 
-#: templates/navbar.html:76
+#: templates/navbar.html:77
 msgid "sign_in"
 msgstr "Sign in"
 
-#: templates/navbar.html:79
+#: templates/navbar.html:80
 msgid "sign_up"
 msgstr "Sign up"
 
@@ -94,7 +94,7 @@ msgstr "Sign up"
 msgid "create_post_title"
 msgstr "Create post"
 
-#: templates/pages/create_post.html:15 templates/pages/posts.html:15
+#: templates/pages/create_post.html:15
 msgid "create_post_submit_btn"
 msgstr "Submit"
 
@@ -106,9 +106,21 @@ msgstr "Title"
 msgid "edit_post_submit_btn"
 msgstr "Submit"
 
-#: templates/pages/single_post.html:5
-msgid "La Grande Boucle"
-msgstr ""
+#: templates/pages/posts.html:17
+msgid "search_btn"
+msgstr "Search"
+
+#: templates/pages/posts.html:35
+msgid "read_more"
+msgstr "Read more"
+
+#: templates/pages/posts.html:47
+msgid "prev"
+msgstr "PREV"
+
+#: templates/pages/posts.html:52
+msgid "next"
+msgstr "NEXT"
 
 #: templates/pages/single_post.html:15 templates/pages/single_post.html:89
 msgid "Edit"

@@ -10,5 +10,5 @@ urlpatterns = [
     url('signup/', views.signup, name='registration'),
     url(r'^activate/(?P<uid64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
-    url('profile/', views.profile, name='profile'),
+    url('profile/', views.ProfileView.as_view(), name='profile'),
 ]

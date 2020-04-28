@@ -23,5 +23,4 @@ class PostForm(forms.ModelForm):
 
 
 class PostSearchForm(forms.Form):
-    name = forms.CharField(label=_("post_title_field"))
-    username = forms.CharField(label=_("post_title_field"))
+    name = forms.CharField(label=_("post_title_field"), required=False)

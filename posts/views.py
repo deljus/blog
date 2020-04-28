@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, Page
 from django.views import View
+from django.utils.decorators import method_decorator
 
 
 class PostsView(View):
@@ -12,10 +13,11 @@ class PostsView(View):
     search_form = PostSearchForm
 
     def get(self, request):
-        posts = Posts.objects.all().filter()
+        name = request.GET.get('name', '')
+        posts = Posts.objects.all().filter(name__contains=name)
         current_page = Paginator(posts, 10)
         page = request.GET.get('page')
-        search_form = self.search_form()
+        search_form = self.search_form(request.GET)
         try:
             posts_list = current_page.page(page)
         except PageNotAnInteger:
@@ -26,18 +28,24 @@ class PostsView(View):
         return render(request, self.template_name, {'page': page, 'posts': posts_list, 'form': search_form})
 
 
-@login_required
-def user_post_list(request):
-    posts = Posts.objects.all().filter(user=request.user.id)
-    current_page = Paginator(posts, 10)
-    page = request.GET.get('page')
-    try:
-        post_list = current_page.page(page)
-    except PageNotAnInteger:
-        post_list = current_page.page(1)
-    except EmptyPage:
-        post_list = current_page.page(current_page.num_pages)
-    return render(request, 'pages/posts.html', {'page': page, 'posts': post_list})
+class UserPostsView(View):
+    template_name = 'pages/user_posts.html'
+    search_form = PostSearchForm
+
+    @method_decorator(login_required)
+    def get(self, request):
+        print(request.user.id)
+        posts = Posts.objects.all().filter(user=request.user.id)
+        current_page = Paginator(posts, 10)
+        page = request.GET.get('page')
+        try:
+            posts_list = current_page.page(page)
+        except PageNotAnInteger:
+            posts_list = current_page.page(1)
+        except EmptyPage:
+            posts_list = current_page.page(current_page.num_pages)
+
+        return render(request, self.template_name, {'page': page, 'posts': posts_list})
 
 
 def single_post(request, id):
@@ -52,6 +60,7 @@ def create_post(request):
         if post_form.is_valid():
             post_form.save()
             messages.success(request, 'Your post saved')
+            
     else:
         post_form = PostForm()
     return render(request, 'pages/create_post.html', {
