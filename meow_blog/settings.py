@@ -14,17 +14,22 @@ import os
 from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _
 
+from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR,'../.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*6doj8700z(cx08*4)+ed_06y3@*y7w4iqrnyum9@q+#+ll$&u'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -138,11 +143,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'musindelus@gmail.com'
-EMAIL_HOST_PASSWORD = 'whileTrue1'
-EMAIL_PORT = 587
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
 DEFAULT_FROM_EMAIL = 'fall'
 
 MEDIA_URL = '/media/'

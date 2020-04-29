@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-28 19:14+0300\n"
+"POT-Creation-Date: 2020-04-29 17:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,20 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
+#: accounts/forms.py:58
+#, fuzzy
+#| msgid "user_label"
+msgid "username"
+msgstr "User"
+
+#: accounts/forms.py:59 templates/pages/users.html:38
+msgid "first_name"
+msgstr "First name"
+
+#: accounts/forms.py:60 templates/pages/users.html:41
+msgid "last_name"
+msgstr "Last name"
+
 #: meow_blog/settings.py:171
 msgid "Russian"
 msgstr ""
@@ -38,7 +52,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: posts/forms.py:15 posts/forms.py:26 posts/forms.py:27
+#: posts/forms.py:15 posts/forms.py:26
 msgid "post_title_field"
 msgstr "Title"
 
@@ -54,7 +68,8 @@ msgstr "Home"
 msgid "posts"
 msgstr "Posts"
 
-#: templates/navbar.html:20
+#: templates/navbar.html:20 templates/pages/users.html:3
+#: templates/pages/users.html:27
 msgid "users"
 msgstr "Users"
 
@@ -74,7 +89,7 @@ msgstr "Profile"
 msgid "crete_post"
 msgstr "Create post"
 
-#: templates/navbar.html:66
+#: templates/navbar.html:66 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "My posts"
 
@@ -106,29 +121,35 @@ msgstr "Title"
 msgid "edit_post_submit_btn"
 msgstr "Submit"
 
-#: templates/pages/posts.html:17
+#: templates/pages/posts.html:17 templates/pages/users.html:17
 msgid "search_btn"
 msgstr "Search"
 
-#: templates/pages/posts.html:35
+#: templates/pages/posts.html:35 templates/pages/user_posts.html:18
 msgid "read_more"
 msgstr "Read more"
 
-#: templates/pages/posts.html:47
+#: templates/pages/posts.html:47 templates/pages/user_posts.html:32
+#: templates/pages/users.html:55
 msgid "prev"
 msgstr "PREV"
 
-#: templates/pages/posts.html:52
+#: templates/pages/posts.html:52 templates/pages/user_posts.html:37
+#: templates/pages/users.html:60
 msgid "next"
 msgstr "NEXT"
 
-#: templates/pages/single_post.html:15 templates/pages/single_post.html:89
-msgid "Edit"
+#: templates/pages/single_post.html:5
+msgid "La Grande Boucle"
 msgstr ""
 
-#: templates/pages/users.html:2 templates/sidebar.html:39
-msgid "nav_users"
-msgstr "Users"
+#: templates/pages/user_posts.html:19
+msgid "edit_btn"
+msgstr "Edit"
+
+#: templates/pages/user_posts.html:20
+msgid "delete_btn"
+msgstr "Delete"
 
 #: templates/sidebar.html:13
 msgid "nav_home"
@@ -145,6 +166,10 @@ msgstr "Create post"
 #: templates/sidebar.html:32
 msgid "nav_user_all_posts"
 msgstr "My posts"
+
+#: templates/sidebar.html:39
+msgid "nav_users"
+msgstr "Users"
 
 #~ msgid "nav_all_posts"
 #~ msgstr "Posts"

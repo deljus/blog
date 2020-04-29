@@ -1,34 +1,70 @@
 {% extends "../base.html" %}
-{% block title %}{% trans 'nav_users' %}{% endblock %}
+{% load i18n static crispy_forms_tags %}
+{% block title %}{% trans 'users' %}{% endblock %}
 {% block content %}
  <main role="main" class="flex-shrink-0">
     <div class="container">
-        {% for user in users %}
-            <div class="card border-dark mb-3">
-              <div class="card-body text-dark">
-                <h5 class="card-title">{{ post.name }}</h5>
-                <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
-                  <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">Read more</a>
-              </div>
+      <div class="row">
+
+         <!-- Search bar -->
+         <div class="col-md-3 mt-5">
+            <div class="card card-body">
+               <form method="get" novalidate>
+                  <div class="form-group">
+                     {{ form|crispy }}
+                     <button class="btn btn-primary btn-block" type="submit">
+                         <i class="fas fa-search"></i>
+                         {% trans 'search_btn' %}
+                     </button>
+                  </div>
+               </form>
             </div>
-        {% endfor %}
-        {% if posts.has_other_pages %}
+         </div>
+         <!-- END Search bar -->
+
+         <div class="col">
+            <h1 class="h3 mb-3 font-weight-normal">
+               {% trans 'users' %}
+            </h1>
+            <div class="row mb-5">
+            {% for user in users %}
+
+                <div class="col-md-4 col-lg-4 col-sm-3">
+                    <div class="card mr-1 mb-4">
+                        <img class="card-img-top" src="{% if user.profile.avatar %}/media/{{ user.profile.avatar  }}{% else %}{% static 'img/default_user.jpg' %}{% endif %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ user.username }}</h5>
+                            <p class="card-text">
+                                {% trans 'first_name' %}: {{ user.first_name }}
+                            </p>
+                            <p class="card-text">
+                                {% trans 'last_name' %}: {{ user.last_name }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            {% endfor %}
+        </div>
+        {% if users.has_other_pages %}
           <nav aria-label="Page navigation conatiner">
               <ul class="pagination justify-content-center">
-                {% if posts.has_previous %}
+                {% if users.has_previous %}
                     <li>
-                        <a href="?page={{ posts.previous_page_number }}" class="page-link">&laquo; PREV </a>
+                        <a href="?page={{ users.previous_page_number }}" class="page-link">&laquo; {% trans 'prev' %} </a>
                     </li>
                 {% endif %}
-                {% if posts.has_next %}
+                {% if users.has_next %}
                     <li>
-                        <a href="?page={{ posts.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+                        <a href="?page={{ users.next_page_number }}" class="page-link"> {% trans 'next' %} &raquo;</a>
                     </li>
                {% endif %}
               </ul>
           </nav>
         </div>
         {% endif %}
+      </div>
     </div>
  </main>
 {% endblock %}

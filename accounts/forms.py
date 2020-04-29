@@ -16,10 +16,10 @@ class ProfileForm(forms.ModelForm):
                                  required=False,
                                  widget=forms.DateInput(format='%d/%m/%Y',
                                                         attrs={'class': 'col-md-12 form-control',
-                                                               'placeholder': 'DD/MM/YYYY',
+                                                               'placeholder': 'DD/MM/YY',
                                                                'id': 'birth-date-picker'}))
 
-    avatar = forms.ImageField(label=_("Avatar"), required=False)
+    avatar = forms.FileField(label=_("Avatar"), required=False)
 
     class Meta:
         model = Profile
@@ -52,3 +52,9 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
+
+
+class UserSearchForm(forms.Form):
+    username = forms.CharField(label=_("username"), required=False)
+    first_name = forms.CharField(label=_("first_name"), required=False)
+    last_name = forms.CharField(label=_("last_name"), required=False)

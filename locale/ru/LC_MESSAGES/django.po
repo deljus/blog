@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-28 19:14+0300\n"
+"POT-Creation-Date: 2020-04-29 17:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,20 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
+#: accounts/forms.py:58
+#, fuzzy
+#| msgid "user_label"
+msgid "username"
+msgstr "Пользователь"
+
+#: accounts/forms.py:59 templates/pages/users.html:38
+msgid "first_name"
+msgstr "Имя"
+
+#: accounts/forms.py:60 templates/pages/users.html:41
+msgid "last_name"
+msgstr "Фамилия"
+
 #: meow_blog/settings.py:171
 msgid "Russian"
 msgstr ""
@@ -40,7 +54,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: posts/forms.py:15 posts/forms.py:26 posts/forms.py:27
+#: posts/forms.py:15 posts/forms.py:26
 msgid "post_title_field"
 msgstr "Заголовок"
 
@@ -56,7 +70,8 @@ msgstr "Домашняя"
 msgid "posts"
 msgstr "Заметки"
 
-#: templates/navbar.html:20
+#: templates/navbar.html:20 templates/pages/users.html:3
+#: templates/pages/users.html:27
 msgid "users"
 msgstr "Пользователи"
 
@@ -76,7 +91,7 @@ msgstr "Профиль"
 msgid "crete_post"
 msgstr "Создать запись"
 
-#: templates/navbar.html:66
+#: templates/navbar.html:66 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "Мои заметки"
 
@@ -108,29 +123,35 @@ msgstr "Редактировать запись"
 msgid "edit_post_submit_btn"
 msgstr "Сохранить"
 
-#: templates/pages/posts.html:17
+#: templates/pages/posts.html:17 templates/pages/users.html:17
 msgid "search_btn"
 msgstr "Найти"
 
-#: templates/pages/posts.html:35
+#: templates/pages/posts.html:35 templates/pages/user_posts.html:18
 msgid "read_more"
 msgstr "Читать далее"
 
-#: templates/pages/posts.html:47
+#: templates/pages/posts.html:47 templates/pages/user_posts.html:32
+#: templates/pages/users.html:55
 msgid "prev"
 msgstr "ПРЕД"
 
-#: templates/pages/posts.html:52
+#: templates/pages/posts.html:52 templates/pages/user_posts.html:37
+#: templates/pages/users.html:60
 msgid "next"
 msgstr "СЛЕД"
 
-#: templates/pages/single_post.html:15 templates/pages/single_post.html:89
-msgid "Edit"
+#: templates/pages/single_post.html:5
+msgid "La Grande Boucle"
+msgstr ""
+
+#: templates/pages/user_posts.html:19
+msgid "edit_btn"
 msgstr "Редактировать"
 
-#: templates/pages/users.html:2 templates/sidebar.html:39
-msgid "nav_users"
-msgstr "Пользователи"
+#: templates/pages/user_posts.html:20
+msgid "delete_btn"
+msgstr "Удалить"
 
 #: templates/sidebar.html:13
 msgid "nav_home"
@@ -147,6 +168,13 @@ msgstr "Создать запись"
 #: templates/sidebar.html:32
 msgid "nav_user_all_posts"
 msgstr "Мои заметки"
+
+#: templates/sidebar.html:39
+msgid "nav_users"
+msgstr "Пользователи"
+
+#~ msgid "Edit"
+#~ msgstr "Редактировать"
 
 #~ msgid "nav_all_posts"
 #~ msgstr "Все заметки"

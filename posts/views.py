@@ -3,9 +3,10 @@ from .models import Posts
 from .forms import PostForm, PostSearchForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, Page
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views import View
 from django.utils.decorators import method_decorator
+from django.shortcuts import get_object_or_404, redirect
 
 
 class PostsView(View):
@@ -60,7 +61,7 @@ def create_post(request):
         if post_form.is_valid():
             post_form.save()
             messages.success(request, 'Your post saved')
-            
+
     else:
         post_form = PostForm()
     return render(request, 'pages/create_post.html', {
@@ -68,16 +69,33 @@ def create_post(request):
     })
 
 
-@login_required
-def edit_post(request, id):
-    if request.method == 'POST':
-        post_form = PostForm(request.POST)
+class EditPostView(View):
+    template_name = 'pages/edit_post.html'
+
+    @method_decorator(login_required)
+    def get(self, request, id):
+        post = Posts.objects.get(pk=id)
+        post_form = PostForm({'name': post.name, 'post': post.post})
+
+        return render(request, self.template_name, {
+            'form': post_form,
+        })
+
+    @method_decorator(login_required)
+    def post(self, request, id):
+        instance = get_object_or_404(Posts, id=id)
+        post_form = PostForm(request.POST, instance=instance)
         if post_form.is_valid():
             post_form.save()
             messages.success(request, 'Your post saved')
-    else:
-        post = Posts.objects.get(pk=id)
-        post_form = PostForm({'name': post.name, 'post': post.post})
-    return render(request, 'pages/edit_post.html', {
-        'form': post_form,
-    })
+        return render(request, self.template_name, {
+            'form': post_form,
+        })
+
+
+class DeletePostView(View):
+
+    def get(self, request, id):
+        post_to_delete = Posts.objects.get(id=id)
+        post_to_delete.delete()
+        return redirect('posts:user_posts')

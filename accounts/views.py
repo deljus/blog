@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileForm, UserForm
+from .forms import ProfileForm, UserForm, UserSearchForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import SignupForm
@@ -14,6 +14,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.views import View
 from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db import transaction
 
 
 class ProfileView(View):
@@ -29,7 +31,7 @@ class ProfileView(View):
             'profile_form': profile_form
         })
 
-    @method_decorator(login_required)
+    @method_decorator(login_required, transaction.atomic)
     def post(self, request):
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -44,6 +46,27 @@ class ProfileView(View):
             'user_form': user_form,
             'profile_form': profile_form
         })
+
+
+class UsersView(View):
+    template_name = 'pages/users.html'
+
+    search_form = UserSearchForm
+
+    def get(self, request):
+        name = request.GET.get('username', '')
+        users = User.objects.all().filter(username__contains=name)
+        current_page = Paginator(users, 9)
+        page = request.GET.get('page')
+        search_form = self.search_form(request.GET)
+        try:
+            users_list = current_page.page(page)
+        except PageNotAnInteger:
+            users_list = current_page.page(1)
+        except EmptyPage:
+            users_list = current_page.page(current_page.num_pages)
+
+        return render(request, self.template_name, {'page': page, 'users': users_list, 'form': search_form})
 
 
 def signup(request):

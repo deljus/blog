@@ -5,3 +5,4 @@ django-crispy-forms==1.9
 pillow==7.1
 django-summernote==0.8.11.6
 django-crum==0.7.2
+python-dotenv==0.13.0

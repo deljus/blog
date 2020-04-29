@@ -13,9 +13,11 @@
             {% for post in posts %}
             <div class="card border-dark mb-2 mt-2">
                <div class="card-body text-dark">
-                  <h5 class="card-title">{{ post.name }}</h5>
-                  <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
-                  <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
+                    <h5 class="card-title">{{ post.name }}</h5>
+                    <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
+                    <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
+                    <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
+                    <a href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger">{% trans 'delete_btn' %}</a>
                </div>
             </div>
             {% endfor %}

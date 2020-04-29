@@ -4,4 +4,8 @@
     background: url('/static/img/index-bg.jpg') top center;
     background-size: cover;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
