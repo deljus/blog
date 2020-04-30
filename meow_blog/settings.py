@@ -15,25 +15,22 @@ from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _
 
 from django.core.exceptions import ImproperlyConfigured
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(BASE_DIR,'../.env'))
+load_dotenv(find_dotenv())
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-
+# Application definition
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+DEBUG = True
+
+COMPRESS_ENABLED=True
 
 ALLOWED_HOSTS = []
-
-# Application definition
 
 INSTALLED_APPS = [
     'posts.apps.PostsConfig',
@@ -136,6 +133,7 @@ STATICFILES_FINDERS = [
 ]
 
 COMPRESS_PRECOMPILERS = (
+    ('text/x-sass', 'django_libsass.SassCompiler'),
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
@@ -180,3 +178,11 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+if os.getenv('MODE') == 'production':
+    DEBUG = False
+    COMPRESS_OFFLINE = True
+    LIBSASS_OUTPUT_STYLE = 'compressed'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    ALLOWED_HOSTS = ['127.0.0.1']
+
