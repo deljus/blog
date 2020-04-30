@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+ <main role="main" class="flex-shrink-0">
+     <div class="container flex-column justify-content-center align-items-center d-flex">
+         <h1>{% trans '404' %}</h1>
+        <img src="{% static 'img/404.jpg' %}" alt="404">
+    </div>
+ </main>
+{% endblock %}

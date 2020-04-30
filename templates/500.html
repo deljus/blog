@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block title %}500{% endblock %}
+
+{% block content %}
+ <main role="main" class="flex-shrink-0">
+     <div class="container flex-column justify-content-center align-items-center d-flex">
+         <h1>{% trans '500' %}</h1>
+        <img src="{% static 'img/500.jpg' %}" alt="500">
+    </div>
+ </main>
+{% endblock %}

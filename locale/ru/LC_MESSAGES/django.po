@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 17:52+0300\n"
+"POT-Creation-Date: 2020-04-30 22:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,11 +46,11 @@ msgstr "Имя"
 msgid "last_name"
 msgstr "Фамилия"
 
-#: meow_blog/settings.py:171
+#: meow_blog/settings.py:178
 msgid "Russian"
 msgstr ""
 
-#: meow_blog/settings.py:172
+#: meow_blog/settings.py:179
 msgid "English"
 msgstr ""
 
@@ -61,6 +61,18 @@ msgstr "Заголовок"
 #: posts/forms.py:17
 msgid "post_body_field"
 msgstr "Текст"
+
+#: templates/403.html:10
+msgid "403"
+msgstr "403 Во имя луны. Ты не пройдешь!"
+
+#: templates/404.html:10
+msgid "404"
+msgstr "404 Страница не найдена. Возможно её уже нет с нами.((("
+
+#: templates/500.html:10
+msgid "500"
+msgstr "500 ОООпс а сервер заболел. Простим ему это."
 
 #: templates/navbar.html:12
 msgid "home"
