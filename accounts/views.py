@@ -55,7 +55,13 @@ class UsersView(View):
 
     def get(self, request):
         name = request.GET.get('username', '')
-        users = User.objects.all().filter(username__contains=name)
+        first_name = request.GET.get('first_name', '')
+        last_name = request.GET.get('last_name', '')
+        users = User.objects.all().filter(
+            username__contains=name,
+            last_name__contains=last_name,
+            first_name__contains=first_name
+        )
         current_page = Paginator(users, 9)
         page = request.GET.get('page')
         search_form = self.search_form(request.GET)
@@ -66,7 +72,7 @@ class UsersView(View):
         except EmptyPage:
             users_list = current_page.page(current_page.num_pages)
 
-        return render(request, self.template_name, {'page': page, 'users': users_list, 'form': search_form})
+        return render(request, self.template_name, {'page': page, 'page_obj': users_list, 'form': search_form})
 
 
 def signup(request):
@@ -103,6 +109,6 @@ def activate(request, uid64, token):
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return redirect('accounts:login')
+        return redirect('login')
     else:
         return HttpResponse('Activation link is invalid!')

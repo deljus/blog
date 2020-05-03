@@ -16,10 +16,13 @@ class ProfileForm(forms.ModelForm):
                                  required=False,
                                  widget=forms.DateInput(format='%d/%m/%Y',
                                                         attrs={'class': 'col-md-12 form-control',
-                                                               'placeholder': 'DD/MM/YY',
                                                                'id': 'birth-date-picker'}))
 
-    avatar = forms.FileField(label=_("Avatar"), required=False)
+    avatar = forms.ImageField(
+        label=_("Avatar"),
+        required=False,
+        widget=forms.FileInput()
+    )
 
     class Meta:
         model = Profile
@@ -33,18 +36,19 @@ class UserForm(forms.ModelForm):
 
 
 class SignupForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True}))
+    username = forms.CharField(label=_('username'),
+                               widget=forms.TextInput(attrs={'autofocus': True}))
 
     email = forms.EmailField(required=True,
-                             label='Email')
+                             label=_('email'))
 
     password1 = forms.CharField(
-        label="Password",
+        label=_("password"),
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
     )
     password2 = forms.CharField(
-        label="Password confirmation",
+        label=_("password_confirmation"),
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
         strip=False,
     )
@@ -55,6 +59,18 @@ class SignupForm(UserCreationForm):
 
 
 class UserSearchForm(forms.Form):
-    username = forms.CharField(label=_("username"), required=False)
-    first_name = forms.CharField(label=_("first_name"), required=False)
-    last_name = forms.CharField(label=_("last_name"), required=False)
+    username = forms.CharField(
+        label=_("username"),
+        required=False,
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+    first_name = forms.CharField(
+        label=_("first_name"),
+        required=False,
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+    last_name = forms.CharField(
+        label=_("last_name"),
+        required=False,
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'compressor',
     'crispy_forms',
-    'django_summernote'
+    'django_summernote',
+    'comment',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -174,6 +175,8 @@ SUMMERNOTE_CONFIG = {
     'disable_attachment': True,
 }
 
+SUMMERNOTE_THEME = 'bs4'
+
 LANGUAGES = (
     ('ru', _('Russian')),
     ('en', _('English')),
@@ -183,6 +186,9 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
+# django-comments-dab login redirect url
+LOGIN_URL='/accounts/login'
+
 if os.getenv('MODE') == 'production':
     DEBUG = False
     COMPRESS_OFFLINE = True
@@ -190,3 +196,4 @@ if os.getenv('MODE') == 'production':
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
     ALLOWED_HOSTS = [os.getenv('HOST_1'), os.getenv('HOST_2')]
 
+DATE_INPUT_FORMATS = ['%d/%m/%Y']

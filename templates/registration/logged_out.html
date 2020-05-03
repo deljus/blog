@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block content %}
-<div class="center">
-    <div>
-        <h1>Logged out!</h1>
-        <a href="{% url 'accounts:login'%}" type="button" class="btn btn-primary">Click here to login again.</a>
-    </div>
-</div>
+    <section id="reg-bg">
+        <div class="center">
+            <div class="logged-out">
+                <h1>{% trans 'logged_out_title' %}</h1>
+                <a href="{% url 'login'%}" type="button" class="btn btn-primary">
+                    {% trans 'logged_out_text' %}
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
+{% block footer %}{% endblock %}

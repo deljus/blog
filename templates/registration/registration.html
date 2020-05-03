@@ -1,15 +1,21 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
 <section id="reg-bg">
   <div class="center">
     <form class="form-registration" method="post" novalidate>
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">
+        {% trans 'sign_up_title' %}
+    </h1>
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}">
       {{ form|crispy }}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+        {% trans 'sign_up_btn' %}
+    </button>
     </form>
   </div>
 </section>
 {% endblock %}
+{% block footer %}{% endblock %}

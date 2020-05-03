@@ -1,12 +1,13 @@
 {% extends "../base.html" %}
 
-{% load crispy_forms_tags static %}
+{% load crispy_forms_tags static compress %}
 
 {% block title %}Profile{% endblock %}
 
 {% block content %}
  <main role="main" class="flex-shrink-0">
     <div class="container">
+
          <form method="post" enctype="multipart/form-data" novalidate>
               {% csrf_token %}
               <input type="hidden" name="next" value="{{ next }}">
@@ -16,7 +17,6 @@
                     <div class="col-sm-3">
                       <div class="text-center">
                         <img src="{% if user.profile.avatar %}/media/{{ user.profile.avatar  }}{% else %}{% static 'img/default_user.jpg' %}{% endif %}" class="avatar img-circle img-thumbnail" alt="avatar">
-                        <h6>Upload a different photo...</h6>
                         {{ profile_form.avatar|as_crispy_field }}
                       </div>
                     </div>
@@ -43,4 +43,10 @@
         </form>
     </div>
  </main>
+{% endblock %}
+{% block js %}
+
+        <script src="{% static 'js/jquery-3.5.0.min.js' %}"></script>
+        <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+        <script src="{% static 'js/profile-page.js' %}"></script>
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 22:10+0300\n"
+"POT-Creation-Date: 2020-05-03 11:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,29 +30,41 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
-#: accounts/forms.py:58
+#: accounts/forms.py:39 accounts/forms.py:63
 #, fuzzy
 #| msgid "user_label"
 msgid "username"
 msgstr "User"
 
-#: accounts/forms.py:59 templates/pages/users.html:38
+#: accounts/forms.py:43
+msgid "email"
+msgstr "Email"
+
+#: accounts/forms.py:46
+msgid "password"
+msgstr "Password"
+
+#: accounts/forms.py:51
+msgid "password_confirmation"
+msgstr "Password conformation"
+
+#: accounts/forms.py:68 templates/pages/users.html:38
 msgid "first_name"
 msgstr "First name"
 
-#: accounts/forms.py:60 templates/pages/users.html:41
+#: accounts/forms.py:73 templates/pages/users.html:41
 msgid "last_name"
 msgstr "Last name"
 
-#: meow_blog/settings.py:178
+#: meow_blog/settings.py:181
 msgid "Russian"
 msgstr ""
 
-#: meow_blog/settings.py:179
+#: meow_blog/settings.py:182
 msgid "English"
 msgstr ""
 
-#: posts/forms.py:15 posts/forms.py:26
+#: posts/forms.py:15 posts/forms.py:27
 msgid "post_title_field"
 msgstr "Title"
 
@@ -72,48 +84,48 @@ msgstr "404 Page not found. Perhaps she is no longer with us. ((("
 msgid "500"
 msgstr "500 OOOps and the server got sick. Forgive him that."
 
-#: templates/navbar.html:12
+#: templates/navbar.html:11
 msgid "home"
 msgstr "Home"
 
-#: templates/navbar.html:16 templates/pages/posts.html:27
+#: templates/navbar.html:15 templates/pages/posts.html:27
 msgid "posts"
 msgstr "Posts"
 
-#: templates/navbar.html:20 templates/pages/users.html:3
+#: templates/navbar.html:19 templates/pages/users.html:3
 #: templates/pages/users.html:27
 msgid "users"
 msgstr "Users"
 
-#: templates/navbar.html:36
-msgid "lang_label"
-msgstr "Language"
-
-#: templates/navbar.html:53
-msgid "user_label"
-msgstr "User"
-
-#: templates/navbar.html:58
-msgid "profile"
-msgstr "Profile"
-
-#: templates/navbar.html:62
+#: templates/navbar.html:24
 msgid "crete_post"
 msgstr "Create post"
 
-#: templates/navbar.html:66 templates/pages/user_posts.html:10
+#: templates/navbar.html:39
+msgid "lang_label"
+msgstr "Language"
+
+#: templates/navbar.html:55
+msgid "user_label"
+msgstr "User"
+
+#: templates/navbar.html:60
+msgid "profile"
+msgstr "Profile"
+
+#: templates/navbar.html:64 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "My posts"
 
-#: templates/navbar.html:70
+#: templates/navbar.html:68
 msgid "sign_out"
 msgstr "Sign out"
 
-#: templates/navbar.html:77
+#: templates/navbar.html:75
 msgid "sign_in"
 msgstr "Sign in"
 
-#: templates/navbar.html:80
+#: templates/navbar.html:78
 msgid "sign_up"
 msgstr "Sign up"
 
@@ -137,31 +149,71 @@ msgstr "Submit"
 msgid "search_btn"
 msgstr "Search"
 
-#: templates/pages/posts.html:35 templates/pages/user_posts.html:18
+#: templates/pages/posts.html:39 templates/pages/user_posts.html:22
 msgid "read_more"
 msgstr "Read more"
 
-#: templates/pages/posts.html:47 templates/pages/user_posts.html:32
-#: templates/pages/users.html:55
-msgid "prev"
-msgstr "PREV"
-
-#: templates/pages/posts.html:52 templates/pages/user_posts.html:37
-#: templates/pages/users.html:60
-msgid "next"
-msgstr "NEXT"
+#: templates/pages/posts.html:43
+msgid "empty_post_text"
+msgstr "Posts not found"
 
 #: templates/pages/single_post.html:5
 msgid "La Grande Boucle"
 msgstr ""
 
-#: templates/pages/user_posts.html:19
+#: templates/pages/user_posts.html:23
 msgid "edit_btn"
 msgstr "Edit"
 
-#: templates/pages/user_posts.html:20
+#: templates/pages/user_posts.html:24
 msgid "delete_btn"
 msgstr "Delete"
+
+#: templates/pages/users.html:47
+msgid "empty_user_text"
+msgstr "Users not found"
+
+#: templates/registration/logged_out.html:9
+msgid "logged_out_title"
+msgstr "Logged out!"
+
+#: templates/registration/logged_out.html:11
+msgid "logged_out_text"
+msgstr "Click here to login again."
+
+#: templates/registration/login.html:8
+msgid "sign_in_title"
+msgstr "Sign in"
+
+#: templates/registration/login.html:12
+msgid "sign_in_btn"
+msgstr "Submit"
+
+#: templates/registration/login.html:13
+msgid "forgot_pass"
+msgstr "Forgot password?"
+
+#: templates/registration/password_reset_done.html:7
+msgid "reset_pass_done_text"
+msgstr ""
+"We've emailed you instructions for setting your password. If they haven't "
+"arrived in a few minutes, check your spam folder."
+
+#: templates/registration/password_reset_form.html:8
+msgid "reset_pass_form_title"
+msgstr "Reset password"
+
+#: templates/registration/password_reset_form.html:13
+msgid "reset_pass_form_btn"
+msgstr "Reset"
+
+#: templates/registration/registration.html:9
+msgid "sign_up_title"
+msgstr "Sign up"
+
+#: templates/registration/registration.html:15
+msgid "sign_up_btn"
+msgstr "Submit"
 
 #: templates/sidebar.html:13
 msgid "nav_home"
@@ -182,6 +234,14 @@ msgstr "My posts"
 #: templates/sidebar.html:39
 msgid "nav_users"
 msgstr "Users"
+
+#: templates/utils/pagination.html:9
+msgid "prev"
+msgstr "PREV"
+
+#: templates/utils/pagination.html:23
+msgid "next"
+msgstr "NEXT"
 
 #~ msgid "nav_all_posts"
 #~ msgstr "Posts"

@@ -12,4 +12,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('summernote/', include('django_summernote.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('comment/', include('comment.urls')),
+    path('api/', include('comment.api.urls')),
+    path('', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

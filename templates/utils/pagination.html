@@ -1,0 +1,28 @@
+{% load i18n replace_url %}
+{% if page_obj.has_other_pages %}
+    <nav aria-label="Page navigation conatiner">
+       <ul class="pagination justify-content-center mb-4 mt-4">
+
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+             <a href="?{% replace_url page=page_obj.previous_page_number %}" class="page-link">
+                 &laquo; {% trans 'prev' %} </a>
+          </li>
+          {% endif %}
+
+            {% for i in page_obj.paginator.page_range  %}
+                {% if i < page_obj.number|add:3 and i > page_obj.number|add:-3 %}
+                    <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                        <a class="page-link" href="?{% replace_url page=i %}">{{ i }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+             <a href="?page={{ page_obj.next_page_number }}" class="page-link"> {% trans 'next' %} &raquo;</a>
+          </li>
+          {% endif %}
+       </ul>
+    </nav>
+{% endif %}

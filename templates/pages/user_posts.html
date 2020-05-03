@@ -10,11 +10,15 @@
                {% trans 'user_all_posts' %}
             </h1>
             <!-- Posts -->
-            {% for post in posts %}
+            {% for post in page_obj %}
             <div class="card border-dark mb-2 mt-2">
                <div class="card-body text-dark">
-                    <h5 class="card-title">{{ post.name }}</h5>
-                    <p class="card-text">{{ post.post|safe|truncatechars:500 }}</p>
+                    <a href="{% url 'posts:single_post' post.id %}">
+                        <h3 class="card-title">{{ post.name }}</h3>
+                    </a>
+                    <div class="post-list-text mb-2">
+                        {{ post.post|safe|truncatechars:500 }}
+                    </div>
                     <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
                     <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
                     <a href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger">{% trans 'delete_btn' %}</a>
@@ -24,22 +28,7 @@
             <!-- END posts -->
 
             <!-- Pagination -->
-            {% if posts.has_other_pages %}
-            <nav aria-label="Page navigation conatiner">
-               <ul class="pagination justify-content-center">
-                  {% if posts.has_previous %}
-                  <li>
-                     <a href="?page={{ posts.previous_page_number }}" class="page-link">&laquo; {% trans 'prev' %} </a>
-                  </li>
-                  {% endif %}
-                  {% if posts.has_next %}
-                  <li>
-                     <a href="?page={{ posts.next_page_number }}" class="page-link"> {% trans 'next' %} &raquo;</a>
-                  </li>
-                  {% endif %}
-               </ul>
-            </nav>
-            {% endif %}
+            {% include '../utils/pagination.html' %}
             <!-- END Pagination -->
 
          </div>

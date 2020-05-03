@@ -1,7 +1,7 @@
 {% extends "../base.html" %}
 {% block title %}My amazing blog{% endblock %}
 {% block content %}
-{% load i18n %}
+{% load i18n comment_tags %}
 {% trans "La Grande Boucle" as race %}
  <main role="main" class="flex-shrink-0">
     <div class="container">
@@ -25,7 +25,9 @@
 
         <!-- Post Content -->
         {{ post.post|safe }}
-
+        {% include_static_jquery %}
+        {% include_bootstrap %}
+        {% render_comments post request %}
       </div>
  </main>
 {% endblock %}

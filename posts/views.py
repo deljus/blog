@@ -16,7 +16,7 @@ class PostsView(View):
     def get(self, request):
         name = request.GET.get('name', '')
         posts = Posts.objects.all().filter(name__contains=name)
-        current_page = Paginator(posts, 10)
+        current_page = Paginator(posts, 2)
         page = request.GET.get('page')
         search_form = self.search_form(request.GET)
         try:
@@ -26,7 +26,7 @@ class PostsView(View):
         except EmptyPage:
             posts_list = current_page.page(current_page.num_pages)
 
-        return render(request, self.template_name, {'page': page, 'posts': posts_list, 'form': search_form})
+        return render(request, self.template_name, {'page': page, 'page_obj': posts_list, 'form': search_form})
 
 
 class UserPostsView(View):
@@ -46,7 +46,7 @@ class UserPostsView(View):
         except EmptyPage:
             posts_list = current_page.page(current_page.num_pages)
 
-        return render(request, self.template_name, {'page': page, 'posts': posts_list})
+        return render(request, self.template_name, {'page': page, 'page_obj': posts_list})
 
 
 def single_post(request, id):
@@ -60,8 +60,8 @@ def create_post(request):
         post_form = PostForm(request.POST)
         if post_form.is_valid():
             post_form.save()
-            messages.success(request, 'Your post saved')
-
+            messages.info(request, 'Your post saved')
+            return redirect('posts:user_posts')
     else:
         post_form = PostForm()
     return render(request, 'pages/create_post.html', {
@@ -87,7 +87,7 @@ class EditPostView(View):
         post_form = PostForm(request.POST, instance=instance)
         if post_form.is_valid():
             post_form.save()
-            messages.success(request, 'Your post saved')
+            messages.info(request, 'Your post saved')
         return render(request, self.template_name, {
             'form': post_form,
         })

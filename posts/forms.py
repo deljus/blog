@@ -23,4 +23,8 @@ class PostForm(forms.ModelForm):
 
 
 class PostSearchForm(forms.Form):
-    name = forms.CharField(label=_("post_title_field"), required=False)
+    name = forms.CharField(
+        label=_("post_title_field"),
+        required=False,
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )

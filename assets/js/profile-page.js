@@ -1,0 +1,1 @@
+$('#birth-date-picker').mask('00/00/0000');
