@@ -77,7 +77,7 @@ class EditPostView(View):
     def get(self, request, id):
         post = Posts.objects.get(pk=id)
 
-        if request.user.id == post.user_id:
+        if request.user.id != post.user_id:
             return PermissionDenied()
 
         post_form = PostForm({'name': post.name, 'post': post.post})
@@ -89,7 +89,7 @@ class EditPostView(View):
     @method_decorator(login_required)
     def post(self, request, id):
         instance = get_object_or_404(Posts, id=id)
-        if request.user.id == instance.user_id:
+        if request.user.id != instance.user_id:
             return PermissionDenied()
 
         post_form = PostForm(request.POST, instance=instance)
