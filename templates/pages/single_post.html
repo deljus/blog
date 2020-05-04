@@ -32,12 +32,14 @@
         <!-- Title -->
     <div class="d-flex justify-content-between align-items-end">
        <span class="h1 mt-4">{{ post.name }}</span>
+        {% if user.is_authenticated or post.user.id == user.id %}
         <div>
             <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
             <button href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 {% trans 'delete_btn' %}
             </button>
         </div>
+        {% endif %}
     </div>
 
 
