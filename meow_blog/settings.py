@@ -187,7 +187,10 @@ LOCALE_PATHS = (
 )
 
 # django-comments-dab login redirect url
-LOGIN_URL='/accounts/login'
+LOGIN_URL='/login'
+PROFILE_APP_NAME = 'accounts'
+PROFILE_MODEL_NAME = 'Profile'
+COMMENT_PROFILE_API_FIELDS = ('username', 'birth_date')
 
 if os.getenv('MODE') == 'production':
     DEBUG = False

@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm, UserForm, UserSearchForm
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignupForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -16,6 +16,7 @@ from django.views import View
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db import transaction
+from django.apps import apps
 
 
 class ProfileView(View):
@@ -112,3 +113,12 @@ def activate(request, uid64, token):
         return redirect('login')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+class ProfileInfoView(View):
+    template_name = 'pages/user-info.html'
+
+    def get(self, request, id):
+        user = get_object_or_404(User, id=id)
+        post_numbers = apps.get_model('posts', 'Posts').objects.filter(user=id).count()
+        return render(request, self.template_name, {'user': user, 'post_numbers': post_numbers})

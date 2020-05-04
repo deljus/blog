@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-03 11:30+0300\n"
+"POT-Creation-Date: 2020-05-04 02:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,9 +32,8 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
-#: accounts/forms.py:39 accounts/forms.py:63
-#, fuzzy
-#| msgid "user_label"
+#: accounts/forms.py:39 accounts/forms.py:63 templates/pages/user-info.html:21
+#: templates/pages/user-info.html:25
 msgid "username"
 msgstr "Пользователь"
 
@@ -50,11 +49,13 @@ msgstr "Пароль"
 msgid "password_confirmation"
 msgstr "Подверждение пароля"
 
-#: accounts/forms.py:68 templates/pages/users.html:38
+#: accounts/forms.py:68 templates/pages/user-info.html:29
+#: templates/pages/users.html:42
 msgid "first_name"
 msgstr "Имя"
 
-#: accounts/forms.py:73 templates/pages/users.html:41
+#: accounts/forms.py:73 templates/pages/user-info.html:33
+#: templates/pages/users.html:45
 msgid "last_name"
 msgstr "Фамилия"
 
@@ -90,12 +91,13 @@ msgstr "500 ОООпс а сервер заболел. Простим ему э�
 msgid "home"
 msgstr "Домашняя"
 
-#: templates/navbar.html:15 templates/pages/posts.html:27
+#: templates/navbar.html:15 templates/pages/posts.html:28
+#: templates/pages/user-info.html:45
 msgid "posts"
 msgstr "Заметки"
 
 #: templates/navbar.html:19 templates/pages/users.html:3
-#: templates/pages/users.html:27
+#: templates/pages/users.html:28
 msgid "users"
 msgstr "Пользователи"
 
@@ -147,15 +149,19 @@ msgstr "Редактировать запись"
 msgid "edit_post_submit_btn"
 msgstr "Сохранить"
 
-#: templates/pages/posts.html:17 templates/pages/users.html:17
+#: templates/pages/posts.html:13 templates/pages/users.html:13
+msgid "filters"
+msgstr "Фильтр"
+
+#: templates/pages/posts.html:18 templates/pages/users.html:18
 msgid "search_btn"
 msgstr "Найти"
 
-#: templates/pages/posts.html:39 templates/pages/user_posts.html:22
+#: templates/pages/posts.html:47 templates/pages/user_posts.html:22
 msgid "read_more"
 msgstr "Читать далее"
 
-#: templates/pages/posts.html:43
+#: templates/pages/posts.html:51
 msgid "empty_post_text"
 msgstr "Записей не найдено"
 
@@ -163,15 +169,39 @@ msgstr "Записей не найдено"
 msgid "La Grande Boucle"
 msgstr ""
 
-#: templates/pages/user_posts.html:23
-msgid "edit_btn"
-msgstr "Редактировать"
+#: templates/pages/single_post.html:14
+msgid "post_delete_modal_title"
+msgstr "Удаление заметки"
 
-#: templates/pages/user_posts.html:24
+#: templates/pages/single_post.html:20
+msgid "post_delete_modal_body"
+msgstr "Вы хотите удалить запись?"
+
+#: templates/pages/single_post.html:24
+msgid "cancel_btn"
+msgstr "Отмена"
+
+#: templates/pages/single_post.html:26 templates/pages/single_post.html:38
 msgid "delete_btn"
 msgstr "Удалить"
 
-#: templates/pages/users.html:47
+#: templates/pages/single_post.html:36
+msgid "edit_btn"
+msgstr "Редактировать"
+
+#: templates/pages/user-info.html:11
+msgid "user-info"
+msgstr "Информация о пользователе"
+
+#: templates/pages/user-info.html:37
+msgid "birth_date"
+msgstr "Дата рождения"
+
+#: templates/pages/user-info.html:41
+msgid "about"
+msgstr "О себе"
+
+#: templates/pages/users.html:51
 msgid "empty_user_text"
 msgstr "Не найдено пользователей"
 

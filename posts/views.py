@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views import View
 from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404, redirect
+from django.core.exceptions import PermissionDenied
 
 
 class PostsView(View):
@@ -15,8 +16,8 @@ class PostsView(View):
 
     def get(self, request):
         name = request.GET.get('name', '')
-        posts = Posts.objects.all().filter(name__contains=name)
-        current_page = Paginator(posts, 2)
+        posts = Posts.objects.all().filter(name__contains=name).order_by('-pub_date')
+        current_page = Paginator(posts, 10)
         page = request.GET.get('page')
         search_form = self.search_form(request.GET)
         try:
@@ -97,5 +98,7 @@ class DeletePostView(View):
 
     def get(self, request, id):
         post_to_delete = Posts.objects.get(id=id)
-        post_to_delete.delete()
-        return redirect('posts:user_posts')
+        if request.user.id == post_to_delete.user_id:
+            post_to_delete.delete()
+            return redirect('posts:user_posts')
+        return PermissionDenied()

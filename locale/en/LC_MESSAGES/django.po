@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-03 11:30+0300\n"
+"POT-Creation-Date: 2020-05-04 02:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,9 +30,8 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
-#: accounts/forms.py:39 accounts/forms.py:63
-#, fuzzy
-#| msgid "user_label"
+#: accounts/forms.py:39 accounts/forms.py:63 templates/pages/user-info.html:21
+#: templates/pages/user-info.html:25
 msgid "username"
 msgstr "User"
 
@@ -48,11 +47,13 @@ msgstr "Password"
 msgid "password_confirmation"
 msgstr "Password conformation"
 
-#: accounts/forms.py:68 templates/pages/users.html:38
+#: accounts/forms.py:68 templates/pages/user-info.html:29
+#: templates/pages/users.html:42
 msgid "first_name"
 msgstr "First name"
 
-#: accounts/forms.py:73 templates/pages/users.html:41
+#: accounts/forms.py:73 templates/pages/user-info.html:33
+#: templates/pages/users.html:45
 msgid "last_name"
 msgstr "Last name"
 
@@ -88,12 +89,13 @@ msgstr "500 OOOps and the server got sick. Forgive him that."
 msgid "home"
 msgstr "Home"
 
-#: templates/navbar.html:15 templates/pages/posts.html:27
+#: templates/navbar.html:15 templates/pages/posts.html:28
+#: templates/pages/user-info.html:45
 msgid "posts"
 msgstr "Posts"
 
 #: templates/navbar.html:19 templates/pages/users.html:3
-#: templates/pages/users.html:27
+#: templates/pages/users.html:28
 msgid "users"
 msgstr "Users"
 
@@ -145,15 +147,19 @@ msgstr "Title"
 msgid "edit_post_submit_btn"
 msgstr "Submit"
 
-#: templates/pages/posts.html:17 templates/pages/users.html:17
+#: templates/pages/posts.html:13 templates/pages/users.html:13
+msgid "filters"
+msgstr "Filters"
+
+#: templates/pages/posts.html:18 templates/pages/users.html:18
 msgid "search_btn"
 msgstr "Search"
 
-#: templates/pages/posts.html:39 templates/pages/user_posts.html:22
+#: templates/pages/posts.html:47 templates/pages/user_posts.html:22
 msgid "read_more"
 msgstr "Read more"
 
-#: templates/pages/posts.html:43
+#: templates/pages/posts.html:51
 msgid "empty_post_text"
 msgstr "Posts not found"
 
@@ -161,15 +167,39 @@ msgstr "Posts not found"
 msgid "La Grande Boucle"
 msgstr ""
 
-#: templates/pages/user_posts.html:23
-msgid "edit_btn"
-msgstr "Edit"
+#: templates/pages/single_post.html:14
+msgid "post_delete_modal_title"
+msgstr "Delete post"
 
-#: templates/pages/user_posts.html:24
+#: templates/pages/single_post.html:20
+msgid "post_delete_modal_body"
+msgstr "Do you want to delete the post?"
+
+#: templates/pages/single_post.html:24
+msgid "cancel_btn"
+msgstr "Cancel"
+
+#: templates/pages/single_post.html:26 templates/pages/single_post.html:38
 msgid "delete_btn"
 msgstr "Delete"
 
-#: templates/pages/users.html:47
+#: templates/pages/single_post.html:36
+msgid "edit_btn"
+msgstr "Edit"
+
+#: templates/pages/user-info.html:11
+msgid "user-info"
+msgstr "User info"
+
+#: templates/pages/user-info.html:37
+msgid "birth_date"
+msgstr "Birth date"
+
+#: templates/pages/user-info.html:41
+msgid "about"
+msgstr "About"
+
+#: templates/pages/users.html:51
 msgid "empty_user_text"
 msgstr "Users not found"
 

@@ -7,9 +7,10 @@
       <div class="row">
 
          <!-- Search bar -->
-         <div class="col-md-3 mt-5">
+         <div class="col-md-3 mt-5 mb-4">
             <div class="card card-body">
                <form method="get" novalidate>
+                   <h3>{% trans 'filters' %}</h3>
                   <div class="form-group">
                      {{ form|crispy }}
                      <button class="btn btn-primary btn-block" type="submit">
@@ -28,12 +29,15 @@
             </h1>
             <div class="row mb-5">
             {% for user in page_obj %}
-
-                <div class="col-md-4 col-lg-4 col-sm-3">
+                <div class="col-md-4 col-lg-4 col-sm-6">
                     <div class="card mr-1 mb-4">
-                        <img class="card-img-top" src="{% if user.profile.avatar %}/media/{{ user.profile.avatar  }}{% else %}{% static 'img/default_user.jpg' %}{% endif %}" alt="Card image cap">
+                        <a href="{% url 'accounts:info' user.id %}">
+                            <img class="card-img-top" src="{% get_media_prefix %}{{ user.profile.avatar }}" alt="Card image cap">
+                        </a>
                         <div class="card-body">
-                            <h5 class="card-title">{{ user.username }}</h5>
+                            <a href="{% url 'accounts:info' user.id %}">
+                                <h5 class="card-title">{{ user.username }}</h5>
+                            </a>
                             <p class="card-text">
                                 {% trans 'first_name' %}: {{ user.first_name }}
                             </p>
@@ -47,6 +51,9 @@
                 <h3 class="text-muted">{% trans 'empty_user_text' %}</h3>
             {% endfor %}
             {% include '../utils/pagination.html' %}
+            </div>
+         </div>
+      </div>
     </div>
  </main>
 {% endblock %}

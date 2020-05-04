@@ -16,7 +16,7 @@
               <div class="row">
                     <div class="col-sm-3">
                       <div class="text-center">
-                        <img src="{% if user.profile.avatar %}/media/{{ user.profile.avatar  }}{% else %}{% static 'img/default_user.jpg' %}{% endif %}" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <img src="{% get_media_prefix %}{{ user.profile.avatar }}" class="avatar img-circle img-thumbnail" alt="avatar">
                         {{ profile_form.avatar|as_crispy_field }}
                       </div>
                     </div>

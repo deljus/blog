@@ -1,0 +1,54 @@
+{% extends "../base.html" %}
+
+{% load static i18n %}
+
+{% block title %}Info{% endblock %}
+
+{% block content %}
+ <main role="main" class="flex-shrink-0">
+    <div class="container">
+         <h1 class="h3 mb-3 font-weight-normal">
+           {% trans 'user-info' %}
+        </h1>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="w-100" src="{% get_media_prefix %}{{ user.profile.avatar }}"/>
+            </div>
+            <div class="col">
+                <div class="card">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <small>{% trans 'username' %}</small>
+                        <h5 class="text-muted">{{ user.username }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <small>{% trans 'username' %}</small>
+                        <h5 class="text-muted">{{ user.username }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <small>{% trans 'first_name' %}</small>
+                        <h5 class="text-muted">{{ user.first_name|default:"-" }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <small>{% trans 'last_name' %}</small>
+                        <h5 class="text-muted">{{ user.last_name|default:"-" }}</h5>
+                    </li>
+                      <li class="list-group-item">
+                        <small>{% trans 'birth_date' %}</small>
+                        <h5 class="text-muted">{{ user.profile.birth_date|default:"-" }}</h5>
+                    </li>
+                      <li class="list-group-item">
+                        <small>{% trans 'about' %}</small>
+                        <h5 class="text-muted">{{ user.profile.about|default:"-" }}</h5>
+                    </li>
+                      <li class="list-group-item">
+                        <small>{% trans 'posts' %}</small>
+                        <h5 class="text-muted">{{ post_numbers|default:"-" }}</h5>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+ </main>
+{% endblock %}

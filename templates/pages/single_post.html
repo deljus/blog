@@ -6,9 +6,41 @@
  <main role="main" class="flex-shrink-0">
     <div class="container">
 
-        <!-- Title -->
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{% trans 'post_delete_modal_title' %}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {% trans 'post_delete_modal_body' %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                {% trans 'cancel_btn' %}
+            </button>
+            <a href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger">{% trans 'delete_btn' %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <h1 class="mt-4">{{ post.name }}</h1>
+        <!-- Title -->
+    <div class="d-flex justify-content-between align-items-end">
+       <span class="h1 mt-4">{{ post.name }}</span>
+        <div>
+            <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
+            <button href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                {% trans 'delete_btn' %}
+            </button>
+        </div>
+    </div>
+
+
 
         <!-- Author -->
         <p class="lead">
@@ -26,7 +58,6 @@
         <!-- Post Content -->
         {{ post.post|safe }}
         {% include_static_jquery %}
-        {% include_bootstrap %}
         {% render_comments post request %}
       </div>
  </main>
