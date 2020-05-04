@@ -121,4 +121,4 @@ class ProfileInfoView(View):
     def get(self, request, id):
         user = get_object_or_404(User, id=id)
         post_numbers = apps.get_model('posts', 'Posts').objects.filter(user=id).count()
-        return render(request, self.template_name, {'user': user, 'post_numbers': post_numbers})
+        return render(request, self.template_name, {'user_obj': user, 'post_numbers': post_numbers})
