@@ -40,14 +40,13 @@
                     <a href="{% url 'posts:single_post' post.id %}">
                         <h3 class="card-title">{{ post.name }}</h3>
                     </a>
-                    <div class="post-list-text mb-2">
-                        {{ post.post|safe|truncatechars:500 }}
-                    </div>
-                    <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
-                    <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
-                    <button href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ post.id }}">
-                        {% trans 'delete_btn' %}
-                    </button>
+                   <div class="d-flex justify-content-end">
+                       <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
+                        <a href="{% url 'posts:edit_post' post.id %}" class="btn btn-primary">{% trans 'edit_btn' %}</a>
+                        <button href="{% url 'posts:delete_post' post.id %}" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ post.id }}">
+                            {% trans 'delete_btn' %}
+                        </button>
+                   </div>
                </div>
             </div>
             {% endfor %}

@@ -1,4 +1,5 @@
 {% load i18n static %}
+{% with url_name=request.resolver_match.view_name %}
 <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,20 +7,20 @@
     <!-- Left side collapse links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto">
-            <a class="nav-link" href="{% url 'index' %}">
+            <a class="nav-link {% if url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">
                 <i class="fas fa-home"></i>
                 {% trans 'home' %}
             </a>
-            <a class="nav-item nav-link" href="{% url 'posts:all' %}">
+            <a class="nav-item nav-link {% if url_name == 'posts:all' %}active{% endif %}" href="{% url 'posts:all' %}">
                 <i class="fas fa-copy"></i>
                 {% trans 'posts' %}
             </a>
-            <a class="nav-item nav-link" href="{% url 'accounts:users' %}">
+            <a class="nav-item nav-link {% if url_name == 'accounts:users' %}active{% endif %}" href="{% url 'accounts:users' %}">
                 <i class="fas fa-users"></i>
                 {% trans 'users' %}
             </a>
             {% if user.is_authenticated %}
-            <a class="btn btn-outline-primary ml-md-4" href="{% url 'posts:create_post' %}">
+            <a class="btn {% if url_name == 'posts:create_post' %}btn-primary{% else %}btn-outline-primary{% endif %} ml-md-4" href="{% url 'posts:create_post' %}">
                 <i class="fas fa-edit"></i>
                 {% trans 'crete_post' %}
             </a>
@@ -43,7 +44,7 @@
                         <form action="{% url 'set_language' %}" method="post">
                             {% csrf_token %}
                             <input name="language" type="hidden" value="{{ language.code }}" />
-                            <button class="dropdown-item" type="submit">{{ language.name_local }}</button>
+                            <button class="dropdown-item {% if language.code == LANGUAGE_CODE %}active{% endif %}" type="submit">{{ language.name_local }}</button>
                         </form>
                         {% endfor %}
                     </div>
@@ -55,15 +56,15 @@
                     {% trans 'user_label' %}:&nbsp;{{ user.username }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
-                            <a class="dropdown-item" href="{% url 'accounts:profile' %}">
+                        <a class="dropdown-item {% if url_name == 'accounts:profile' %}active{% endif %}" href="{% url 'accounts:profile' %}">
                             <i class="fas fa-user"></i>
                         {% trans 'profile' %}
                         </a>
-                            <a class="dropdown-item" href="{% url 'posts:user_posts' %}">
+                            <a class="dropdown-item {% if url_name == 'posts:user_posts' %}active{% endif %}" href="{% url 'posts:user_posts' %}">
                             <i class="fas fa-database"></i>
                         {% trans 'user_all_posts' %}
                         </a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">
+                        <a class="dropdown-item">
                             <i class="fas fa-sign-out-alt"></i>
                             {% trans 'sign_out' %}
                         </a>
@@ -82,3 +83,4 @@
         <!-- END Right side collapse links -->
     </div>
 </nav>
+{% endwith %}

@@ -14,6 +14,8 @@ class UserForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     name = forms.CharField(label=_("post_title_field"),
                            required=True)
+    # tags = forms.CharField(label=_("post_tags_field"),
+    #                        required=False)
     post = forms.CharField(label=_("post_body_field"),
                            required=True, widget=SummernoteWidget({'width': '100%', 'height': '600px'}))
 
