@@ -197,6 +197,6 @@ if os.getenv('MODE') == 'production':
     COMPRESS_OFFLINE = True
     LIBSASS_OUTPUT_STYLE = 'compressed'
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-    ALLOWED_HOSTS = [os.getenv('HOST_1'), os.getenv('HOST_2')]
+    ALLOWED_HOSTS = ['*']
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
