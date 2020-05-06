@@ -28,10 +28,11 @@
                           </div>
                             <div class="col-sm-6">
                                 {{ user_form.first_name|as_crispy_field }}
+                                {{ user_form.username|as_crispy_field }}
                           </div>
                         </div>
                         <div class="form-row">
-                            {{ profile_form.about|as_crispy_field }}
+                                {{ profile_form.about|as_crispy_field }}
                         </div>
                         <div>
                             <button class="btn btn-lg btn-primary" type="submit">Save</button>

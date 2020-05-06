@@ -200,3 +200,9 @@ if os.getenv('MODE') == 'production':
     ALLOWED_HOSTS = ['*']
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
+ACCOUNT_EMAIL_UNIQUE = True
+ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.auth.EmailAuthBackend',
+]

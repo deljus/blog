@@ -30,9 +30,14 @@ class ProfileForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
+    username = forms.CharField(
+        label=_("username"),
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'username')
 
 
 class SignupForm(UserCreationForm):
@@ -56,6 +61,13 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
+        if email and User.objects.filter(email=email).exclude(username=username).exists():
+            raise forms.ValidationError(_('email_is_unique'))
+        return email
 
 
 class UserSearchForm(forms.Form):
