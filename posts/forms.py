@@ -19,9 +19,13 @@ class PostForm(forms.ModelForm):
     post = forms.CharField(label=_("post_body_field"),
                            required=True, widget=SummernoteWidget({'width': '100%', 'height': '600px'}))
 
+    is_published = forms.BooleanField(label=_("post_publish_field"), show_hidden_initial=False, required=False,
+                                      widget=forms.CheckboxInput(
+                                          attrs={'class': 'switch'}))
+
     class Meta:
         model = Posts
-        fields = ('name', 'post')
+        fields = ('name', 'post', 'is_published')
 
 
 class PostSearchForm(forms.Form):
