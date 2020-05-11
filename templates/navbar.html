@@ -20,7 +20,7 @@
                 {% trans 'users' %}
             </a>
             {% if user.is_authenticated %}
-            <a class="btn {% if url_name == 'posts:create_post' %}btn-primary{% else %}btn-outline-primary{% endif %} ml-md-4" href="{% url 'posts:create_post' %}">
+            <a class="btn {% if url_name == 'posts:create_post' %}btn-primary{% else %}btn-outline-primary{% endif %} ml-md-4 d-flex align-items-center" href="{% url 'posts:create_post' %}">
                 <i class="fas fa-edit"></i>
                 {% trans 'crete_post' %}
             </a>
@@ -60,9 +60,9 @@
                             <i class="fas fa-user"></i>
                         {% trans 'profile' %}
                         </a>
-                            <a class="dropdown-item {% if url_name == 'posts:user_posts' %}active{% endif %}" href="{% url 'posts:user_posts' %}">
+                        <a class="dropdown-item {% if url_name == 'posts:user_posts' %}active{% endif %}" href="{% url 'posts:user_posts' %}">
                             <i class="fas fa-database"></i>
-                        {% trans 'user_all_posts' %}
+                            {% trans 'user_all_posts' %}
                         </a>
                         <a class="dropdown-item" href="{% url 'logout' %}">
                             <i class="fas fa-sign-out-alt"></i>
@@ -72,10 +72,10 @@
                 </li>
             </ul>
             {% else %}
-            <a href="{% url 'login' %}" type="button" class="btn btn-outline-primary mb-2 mb-md-0">
+            <a href="{% url 'login' %}" type="button" class="btn btn-outline-primary mb-2 mb-md-0 d-flex align-items-center">
                 {% trans 'sign_in' %}
             </a>
-            <a href="{% url 'accounts:registration' %}" type="button" class="btn btn-outline-primary ml-md-2">
+            <a href="{% url 'accounts:registration' %}" type="button" class="btn btn-outline-primary ml-md-2 d-flex align-items-center">
                 {% trans 'sign_up' %}
             </a>
             {% endif %}

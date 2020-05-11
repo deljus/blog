@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-06 21:12+0300\n"
+"POT-Creation-Date: 2020-05-07 20:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,32 +32,33 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
-#: accounts/forms.py:39 accounts/forms.py:70 templates/pages/user-info.html:21
+#: accounts/forms.py:34 accounts/forms.py:44 accounts/forms.py:75
+#: templates/pages/user-info.html:21
 msgid "username"
 msgstr "Пользователь"
 
-#: accounts/forms.py:43
+#: accounts/forms.py:48
 msgid "email"
 msgstr "Email"
 
-#: accounts/forms.py:46
+#: accounts/forms.py:51
 msgid "password"
 msgstr "Пароль"
 
-#: accounts/forms.py:51
+#: accounts/forms.py:56
 msgid "password_confirmation"
 msgstr "Подверждение пароля"
 
-#: accounts/forms.py:64
+#: accounts/forms.py:69
 msgid "email_is_unique"
 msgstr "Email с таким именем уже существует"
 
-#: accounts/forms.py:75 templates/pages/user-info.html:25
+#: accounts/forms.py:80 templates/pages/user-info.html:25
 #: templates/pages/users.html:42
 msgid "first_name"
 msgstr "Имя"
 
-#: accounts/forms.py:80 templates/pages/user-info.html:29
+#: accounts/forms.py:85 templates/pages/user-info.html:29
 #: templates/pages/users.html:45
 msgid "last_name"
 msgstr "Фамилия"
@@ -104,35 +105,39 @@ msgstr "Заметки"
 msgid "users"
 msgstr "Пользователи"
 
-#: templates/navbar.html:25
+#: templates/navbar.html:24
+msgid "chat"
+msgstr "Чат"
+
+#: templates/navbar.html:29
 msgid "crete_post"
 msgstr "Создать запись"
 
-#: templates/navbar.html:40
+#: templates/navbar.html:44
 msgid "lang_label"
 msgstr "Язык"
 
-#: templates/navbar.html:56
+#: templates/navbar.html:60
 msgid "user_label"
 msgstr "Пользователь"
 
-#: templates/navbar.html:61
+#: templates/navbar.html:65
 msgid "profile"
 msgstr "Профиль"
 
-#: templates/navbar.html:65 templates/pages/user_posts.html:10
+#: templates/navbar.html:69 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "Мои заметки"
 
-#: templates/navbar.html:69
+#: templates/navbar.html:73
 msgid "sign_out"
 msgstr "Выйти"
 
-#: templates/navbar.html:76
+#: templates/navbar.html:80
 msgid "sign_in"
 msgstr "Войти"
 
-#: templates/navbar.html:79
+#: templates/navbar.html:83
 msgid "sign_up"
 msgstr "Зарегистрироваться"
 
