@@ -38,7 +38,14 @@
             <div class="card border-dark mb-2 mt-2">
                <div class="card-body text-dark">
                     <a href="{% url 'posts:single_post' post.id %}">
-                        <h3 class="card-title">{{ post.name }}</h3>
+                        <h3 class="card-title">
+                            {{ post.name }}
+                            {% if post.is_published %}
+                                <span class="badge badge-info ml-4">
+                                    {% trans 'published' %}
+                                </span>
+                            {% endif %}
+                        </h3>
                     </a>
                    <div class="d-flex justify-content-end">
                        <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>

@@ -16,7 +16,7 @@ class PostsView(View):
 
     def get(self, request):
         name = request.GET.get('name', '')
-        posts = Posts.objects.all().filter(name__contains=name).order_by('-pub_date')
+        posts = Posts.objects.all().filter(name__contains=name, is_published=True).order_by('-pub_date')
         current_page = Paginator(posts, 10)
         page = request.GET.get('page')
         search_form = self.search_form(request.GET)
@@ -37,7 +37,7 @@ class UserPostsView(View):
     @method_decorator(login_required)
     def get(self, request):
         print(request.user.id)
-        posts = Posts.objects.all().filter(user=request.user.id)
+        posts = Posts.objects.all().filter(user=request.user.id).order_by('-pub_date')
         current_page = Paginator(posts, 10)
         page = request.GET.get('page')
         try:
@@ -80,7 +80,7 @@ class EditPostView(View):
         if request.user.id != post.user_id:
             raise PermissionDenied
 
-        post_form = PostForm({'name': post.name, 'post': post.post})
+        post_form = PostForm({'name': post.name, 'post': post.post, 'is_published': post.is_published})
 
         return render(request, self.template_name, {
             'form': post_form,
@@ -96,6 +96,7 @@ class EditPostView(View):
         if post_form.is_valid():
             post_form.save()
             messages.info(request, 'Your post saved')
+            return redirect('posts:single_post', instance.id)
         return render(request, self.template_name, {
             'form': post_form,
         })

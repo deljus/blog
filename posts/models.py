@@ -12,6 +12,7 @@ class Posts(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.CharField(max_length=255, default='')
     comments = GenericRelation(Comment)
+    is_published = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         user = get_current_user()
