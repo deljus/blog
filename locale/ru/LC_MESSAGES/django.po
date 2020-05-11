@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-07 20:01+0300\n"
+"POT-Creation-Date: 2020-05-11 19:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,13 +71,17 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: posts/forms.py:15 posts/forms.py:29
+#: posts/forms.py:15 posts/forms.py:31
 msgid "post_title_field"
 msgstr "Заголовок"
 
 #: posts/forms.py:19
 msgid "post_body_field"
 msgstr "Текст"
+
+#: posts/forms.py:22
+msgid "post_publish_field"
+msgstr "Опубликовать"
 
 #: templates/403.html:10
 msgid "403"
@@ -105,39 +109,35 @@ msgstr "Заметки"
 msgid "users"
 msgstr "Пользователи"
 
-#: templates/navbar.html:24
-msgid "chat"
-msgstr "Чат"
-
-#: templates/navbar.html:29
+#: templates/navbar.html:25
 msgid "crete_post"
 msgstr "Создать запись"
 
-#: templates/navbar.html:44
+#: templates/navbar.html:40
 msgid "lang_label"
 msgstr "Язык"
 
-#: templates/navbar.html:60
+#: templates/navbar.html:56
 msgid "user_label"
 msgstr "Пользователь"
 
-#: templates/navbar.html:65
+#: templates/navbar.html:61
 msgid "profile"
 msgstr "Профиль"
 
-#: templates/navbar.html:69 templates/pages/user_posts.html:10
+#: templates/navbar.html:65 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "Мои заметки"
 
-#: templates/navbar.html:73
+#: templates/navbar.html:69
 msgid "sign_out"
 msgstr "Выйти"
 
-#: templates/navbar.html:80
+#: templates/navbar.html:76
 msgid "sign_in"
 msgstr "Войти"
 
-#: templates/navbar.html:83
+#: templates/navbar.html:79
 msgid "sign_up"
 msgstr "Зарегистрироваться"
 
@@ -165,11 +165,11 @@ msgstr "Фильтр"
 msgid "search_btn"
 msgstr "Найти"
 
-#: templates/pages/posts.html:45 templates/pages/user_posts.html:44
+#: templates/pages/posts.html:46 templates/pages/user_posts.html:44
 msgid "read_more"
 msgstr "Читать далее"
 
-#: templates/pages/posts.html:50
+#: templates/pages/posts.html:52
 msgid "empty_post_text"
 msgstr "Записей не найдено"
 
@@ -209,6 +209,10 @@ msgstr "Дата рождения"
 #: templates/pages/user-info.html:37
 msgid "about"
 msgstr "О себе"
+
+#: templates/pages/user_posts.html:41
+msgid "published"
+msgstr "Опубликовано"
 
 #: templates/pages/users.html:51
 msgid "empty_user_text"
@@ -283,6 +287,9 @@ msgstr "ПРЕД"
 #: templates/utils/pagination.html:23
 msgid "next"
 msgstr "СЛЕД"
+
+#~ msgid "chat"
+#~ msgstr "Чат"
 
 #~ msgid "Edit"
 #~ msgstr "Редактировать"

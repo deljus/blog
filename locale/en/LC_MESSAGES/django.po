@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-07 20:01+0300\n"
+"POT-Creation-Date: 2020-05-11 19:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,13 +69,17 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: posts/forms.py:15 posts/forms.py:29
+#: posts/forms.py:15 posts/forms.py:31
 msgid "post_title_field"
 msgstr "Title"
 
 #: posts/forms.py:19
 msgid "post_body_field"
 msgstr "Text"
+
+#: posts/forms.py:22
+msgid "post_publish_field"
+msgstr "Publish"
 
 #: templates/403.html:10
 msgid "403"
@@ -103,39 +107,35 @@ msgstr "Posts"
 msgid "users"
 msgstr "Users"
 
-#: templates/navbar.html:24
-msgid "chat"
-msgstr "Chat"
-
-#: templates/navbar.html:29
+#: templates/navbar.html:25
 msgid "crete_post"
 msgstr "Create post"
 
-#: templates/navbar.html:44
+#: templates/navbar.html:40
 msgid "lang_label"
 msgstr "Language"
 
-#: templates/navbar.html:60
+#: templates/navbar.html:56
 msgid "user_label"
 msgstr "User"
 
-#: templates/navbar.html:65
+#: templates/navbar.html:61
 msgid "profile"
 msgstr "Profile"
 
-#: templates/navbar.html:69 templates/pages/user_posts.html:10
+#: templates/navbar.html:65 templates/pages/user_posts.html:10
 msgid "user_all_posts"
 msgstr "My posts"
 
-#: templates/navbar.html:73
+#: templates/navbar.html:69
 msgid "sign_out"
 msgstr "Sign out"
 
-#: templates/navbar.html:80
+#: templates/navbar.html:76
 msgid "sign_in"
 msgstr "Sign in"
 
-#: templates/navbar.html:83
+#: templates/navbar.html:79
 msgid "sign_up"
 msgstr "Sign up"
 
@@ -163,11 +163,11 @@ msgstr "Filters"
 msgid "search_btn"
 msgstr "Search"
 
-#: templates/pages/posts.html:45 templates/pages/user_posts.html:44
+#: templates/pages/posts.html:46 templates/pages/user_posts.html:44
 msgid "read_more"
 msgstr "Read more"
 
-#: templates/pages/posts.html:50
+#: templates/pages/posts.html:52
 msgid "empty_post_text"
 msgstr "Posts not found"
 
@@ -207,6 +207,10 @@ msgstr "Birth date"
 #: templates/pages/user-info.html:37
 msgid "about"
 msgstr "About"
+
+#: templates/pages/user_posts.html:41
+msgid "published"
+msgstr "Published"
 
 #: templates/pages/users.html:51
 msgid "empty_user_text"
@@ -281,6 +285,9 @@ msgstr "PREV"
 #: templates/utils/pagination.html:23
 msgid "next"
 msgstr "NEXT"
+
+#~ msgid "chat"
+#~ msgstr "Chat"
 
 #~ msgid "nav_all_posts"
 #~ msgstr "Posts"
