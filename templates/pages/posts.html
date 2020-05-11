@@ -42,7 +42,9 @@
                       <h3 class="card-title">{{ post.name }}</h3>
                   </a>
                    <div class="d-flex justify-content-end">
-                       <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">{% trans 'read_more' %}</a>
+                       <a href="{% url 'posts:single_post' post.id %}" class="btn btn-primary">
+                           {% trans 'read_more' %}
+                       </a>
                    </div>
                </div>
             </div>

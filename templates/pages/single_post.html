@@ -42,25 +42,23 @@
         {% endif %}
     </div>
 
+    <!-- Author -->
+    <p class="lead">
+      by
+      <a href="{% url 'accounts:info' post.user.id %}">{{ post.user.username }}</a>
+    </p>
 
+    <hr>
 
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">{{ post.user.username }}</a>
-        </p>
+    <!-- Date/Time -->
+    <p>Posted on {{ post.pub_date }}</p>
 
-        <hr>
+    <hr>
 
-        <!-- Date/Time -->
-        <p>Posted on {{ post.pub_date }}</p>
-
-        <hr>
-
-        <!-- Post Content -->
-        {{ post.post|safe }}
-        {% include_static_jquery %}
-        {% render_comments post request %}
-      </div>
+    <!-- Post Content -->
+    {{ post.post|safe }}
+    {% include_static_jquery %}
+    {% render_comments post request %}
+  </div>
  </main>
 {% endblock %}
